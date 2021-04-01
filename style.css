@@ -1,0 +1,91 @@
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+  margin: 0;
+}
+div,
+section,
+header,
+footer,
+p,
+h1,
+h2 {
+  box-sizing: border-box;
+}
+a {
+  color: royalblue;
+}
+img {
+  max-width: 100%; /*반응형을 위함*/
+  height: auto;
+}
+
+.global-width {
+  max-width: 620px; /*모바일 기기를 위함, 더알아보기*/
+  margin: 0 auto; /*센터정렬*/
+  padding: 0 1rem; /*16px임*/
+}
+
+.scroll-graphic {
+  overflow-x: hidden; /*새 날아가니까 스크롤생겨서 없애주는것 */
+  position: sticky; /*IE에서는 사용안됨!!*/
+  top: 0;
+  height: 100vh;
+}
+
+.graphic-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /*이미지 스크롤시 투명도가 생기며 이미지가 교체됨을 표현하기위해 이미지 겹쳐둠!*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /*기본은 이미지가 안보이게*/
+  transition: 0.5s; /*부드럽게나오는 효과!!*/
+  will-change: opacity; /*불투명도가 바뀔것이라고 미리 브라우져에게 알려주는것!!효율적으로 만들어주기위해 ^^!*/
+}
+
+.visible {
+  opacity: 1; /*visible 클래스가 붙으면 이미지가 보여짐*/
+}
+.scene-img {
+  max-height: 100vh; /*이미지 자체의 최대 높이를 화면에 맞게!, 반응형 제작시 매우 중요해 보인다. 브라우져사이즈를 줄이니 이미지가 알아서 예쁘게 줄어듬 !*/
+}
+.scroll-text {
+  position: relative; /* 스크롤될 글을 이미지 위로 올려줌*/
+}
+
+.step {
+  margin-bottom: 60vh;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+
+.bird {
+  position: absolute;
+  left: 0;
+  bottom: 60%;
+  width: 100px;
+  transform: translateX(-100%); /*새크기의 100퍼만큼 옆으로!*/
+  transition: 1.5s 0.5s linear; /*1.5초동안, 0.5초뒤에시작, 일정하게*/
+}
+
+/*두번째 새*/
+[data-index='5'] .bird {
+  left: 30%;
+  bottom: 30%;
+}
+
+.global-footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.strikethrough {
+  text-decoration: line-through; /*취소선*/
+}
